@@ -2,8 +2,10 @@ package com.alibasoglu.stockmarketapp.di
 
 import com.alibasoglu.stockmarketapp.data.csv.CSVParser
 import com.alibasoglu.stockmarketapp.data.csv.CompanyListingsParser
+import com.alibasoglu.stockmarketapp.data.csv.IntradayInfoParser
 import com.alibasoglu.stockmarketapp.data.repository.StockRepositoryImpl
 import com.alibasoglu.stockmarketapp.domain.model.CompanyListing
+import com.alibasoglu.stockmarketapp.domain.model.IntradayInfo
 import com.alibasoglu.stockmarketapp.domain.repository.StockRepository
 import dagger.Binds
 import dagger.Module
@@ -21,6 +23,12 @@ abstract class RepositoryModule {
     abstract fun bindCompanyListingsParser(
         companyListingParser: CompanyListingsParser
     ): CSVParser<CompanyListing>
+
+    @Binds
+    @Singleton
+    abstract fun bindIntradayInfoParser(
+        intradayInfoParser: IntradayInfoParser
+    ): CSVParser<IntradayInfo>
 
     @Binds
     @Singleton
